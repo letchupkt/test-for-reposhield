@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RepoShield Test App</title>
+</head>
+<body>
+    <h1>Welcome to RepoShield Test</h1>
+
+    <!-- 🚨 Unsafe JavaScript injection -->
+    <input id="search" placeholder="Search users">
+    <button onclick="search()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        function search() {
+            let q = document.getElementById("search").value;
+            fetch(`/search?q=${q}`)
+                .then(res => res.json())
+                .then(data => {
+                    // 🚨 Unsafe innerHTML
+                    document.getElementById("results").innerHTML = JSON.stringify(data.results);
+                });
+        }
+    </script>
+</body>
+</html>
