@@ -1,0 +1,5 @@
+{
+    "database_url": "sqlite:///users.db",
+    "api_key": "sk_test_1234567890FAKEKEY",
+    "debug": true
+}
